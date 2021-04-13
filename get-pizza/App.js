@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
-import { Header } from 'react-native-elements';
+import Header from './components/Header';
 import api from './services';
 import FlatListItem from './components/FlatListItem';
 
