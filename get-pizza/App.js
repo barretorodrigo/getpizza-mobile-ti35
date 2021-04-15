@@ -7,15 +7,20 @@ import FlatListItem from './components/FlatListItem';
 const App = () => {
 
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const loadingProducts = async () => {
+    if (loading) {
+      return;
+    }
     const response = await api.get('products');
     setProducts(response);
+    setLoading(true);
   }
 
   useEffect(() => {
     loadingProducts();
-    //console.log(products.data)
+    console.log(products.data)
   }, [products]);
 
   return (

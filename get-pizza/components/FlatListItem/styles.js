@@ -4,21 +4,24 @@ const styles = StyleSheet.create({
     titleAndPrice:{
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 5,
+        marginHorizontal:5
     },
     image: {
         width:80,
         height:80,
     },
     card:{
-        flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: 25,
         marginBottom: 5,
         borderRadius: 10,
         elevation: 5,
         backgroundColor: '#fff',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        paddingBottom: 10,
+        marginHorizontal: 10
     },
     title:{
         fontSize: 20,
@@ -30,6 +33,11 @@ const styles = StyleSheet.create({
         color: "#e22424",
         fontWeight: "bold",
     },
+    content:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom:10
+    }
 });
 
 export default styles;
