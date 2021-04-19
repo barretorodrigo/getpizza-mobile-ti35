@@ -1,56 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
-import Header from './components/Header';
-import api from './services';
-import FlatListItem from './components/FlatListItem';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './pages/Home';
+import Cart from './pages/Cart';
 
-const App = () => {
+const Stack = createStackNavigator();
 
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const loadingProducts = async () => {
-    if (loading) {
-      return;
-    }
-    const response = await api.get('products');
-    setProducts(response);
-    setLoading(true);
-  }
-
-  useEffect(() => {
-    loadingProducts();
-    console.log(products.data)
-  }, [products]);
-
-  return (
-    <View style={styles.container}>
-      <Header />
-      <FlatList
-        data={products.data}
-        renderItem={({ item }) => <FlatListItem item={item} />}
-        keyExtractor={item => String(item.id)}
-      />
-    </View>
+const App = () =>{
+  return(
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home" headerMode={'none'}>
+        <Stack.Screen name="Home" component={Home}/>
+        <Stack.Screen name="Cart" component={Cart}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
 export default App;
-
-
-
-
-
-
-
-
-
